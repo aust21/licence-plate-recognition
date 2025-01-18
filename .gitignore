@@ -1,0 +1,49 @@
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+Makefile
+Makefile.user
+CMakeLists.txt.user
+CMakeLists.txt.rewritten
+
+# Build directories (often named build or something similar)
+build/
+*/build/
+*/Debug/
+*/Release/
+*/RelWithDebInfo/
+*/MinSizeRel/
+
+# Debugging and profiling files
+*.dSYM/
+*.pdb
+*.stackdump
+*.log
+
+# Object and binary files
+*.o
+*.a
+*.so
+*.dll
+*.exe
+*.out
+
+# IDE or editor-specific files
+.idea/
+.vscode/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Temporary files from various build systems
+*.swp
+*.bak
+*.tmp
+*.log
+
+# Dependency directories
+lib/
