@@ -1,51 +1,59 @@
-# First Level Heading
+# Licence Plate Recognition
 
-Paragraph.
-
-## Second Level Heading
-
-Paragraph.
-
-- bullet
-+ other bullet
-* another bullet
-    * child bullet
-
-1. ordered
-2. next ordered
-
-### Third Level Heading
-
-Some *italic* and **bold** text and `inline code`.
-
-An empty line starts a new paragraph.
-
-Use two spaces at the end  
-to force a line break.
-
-A horizontal ruler follows:
+This project is a licence plate recognition application built using C++, OpenCV, and CMake.
 
 ---
 
-Add links inline like [this link to the Qt homepage](https://www.qt.io),
-or with a reference like [this other link to the Qt homepage][1].
+## Features
+- Licence plate detection using OpenCV.
+- Text extraction (future release)
 
-    Add code blocks with
-    four spaces at the front.
 
-> A blockquote
-> starts with >
->
-> and has the same paragraph rules as normal text.
+## Prerequisites
+Before building and running the project, ensure the following tools and libraries are installed:
 
-First Level Heading in Alternate Style
-======================================
+### Required Tools
+- **C++ Compiler**: GCC (>= 11.0) or MSVC
+- **CMake**: >= 3.16
 
-Paragraph.
+### Dependencies
+- OpenCV: Image processing library
+- GTK+: Required by some OpenCV functionalities
+- libva-dev: For video acceleration
 
-Second Level Heading in Alternate Style
----------------------------------------
+## Installation and Setup
 
-Paragraph.
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/aust21/licence-plate-recognition.git
+cd licence-plate-recognition
+```
 
-[1]: https://www.qt.io
+### Step 2: Install Dependencies
+- **For Linux**: sudo apt-get install libopencv-dev
+- **MacOS (Homebrew)**: brew install opencv
+- **Windows**: Use a precompiled OpenCV distribution or build it from source.
+
+### Step 3: Build the Project
+
+Create build folder if it doesn't exist:
+
+```bash
+mkdir build && cd build
+```
+
+Build the application
+```bash
+make
+```
+
+### Step 4: Run the Application
+
+Run the generated executable:
+```bash
+./licence-detection
+```
+
+
+## Acknowledgments
+- [OpenCV](https://opencv.org/)
