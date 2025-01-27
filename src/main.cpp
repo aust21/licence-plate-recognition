@@ -11,13 +11,14 @@ int main()
         cv::resizeWindow("Licence plate detector", 800, 600);
 
         // Open the video stream
-        cv::VideoCapture cap("../../resources/cars2.mp4", cv::CAP_FFMPEG);
+        cv::VideoCapture cap("../../../licence-plate-recognition/resources/cars2.mp4",
+                             cv::CAP_FFMPEG);
         if (!cap.isOpened()) {
             throw std::runtime_error("Failed to open video stream");
         }
 
         cv::CascadeClassifier plate_cascade;
-        if (!plate_cascade.load("../../resources/plate_number.xml")) {
+        if (!plate_cascade.load("../../../licence-plate-recognition/resources/plate_number.xml")) {
             throw std::runtime_error("Failed to load Haar cascade for license plate detection");
         }
 

@@ -10,7 +10,9 @@ find_package(OpenCV REQUIRED)
 add_executable(objectDetection src/main.cpp
     readme.md
     .gitignore
-    resources/properties.config)
+    resources/cars2.mp4
+    resources/plate_number.xml
+)
 
 target_include_directories(objectDetection PRIVATE ${OpenCV_INCLUDE_DIRS})
 target_link_libraries(objectDetection PRIVATE ${OpenCV_LIBS})
