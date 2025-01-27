@@ -59,6 +59,8 @@ Run the generated executable:
 ./licence-detection
 ```
 
+### Press q or Q to stop the program
+
 
 ## Acknowledgments
 - [OpenCV](https://opencv.org/)
