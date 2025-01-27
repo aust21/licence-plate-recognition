@@ -1,8 +1,30 @@
+#include "../src/main.h"
 #include <array>
 #include <iostream>
 #include <memory>
 #include <opencv2/opencv.hpp>
 #include <string>
+
+cv::CascadeClassifier loadCascade(std::string filepath)
+{
+    cv::CascadeClassifier plate_cascade;
+
+    if (!plate_cascade.load(filepath)) {
+        throw std::runtime_error("Failed to load cascade classifier");
+    }
+
+    return plate_cascade;
+}
+
+cv::VideoCapture loadCam(std::string filepath)
+{
+    cv::VideoCapture cap(filepath, cv::CAP_FFMPEG);
+    if (!cap.isOpened()) {
+        throw std::runtime_error("Failed to open video stream");
+    }
+
+    return cap;
+}
 
 int main()
 {
@@ -11,16 +33,10 @@ int main()
         cv::resizeWindow("Licence plate detector", 800, 600);
 
         // Open the video stream
-        cv::VideoCapture cap("../../../licence-plate-recognition/resources/cars2.mp4",
-                             cv::CAP_FFMPEG);
-        if (!cap.isOpened()) {
-            throw std::runtime_error("Failed to open video stream");
-        }
+        cv::VideoCapture cap = loadCam("../../../licence-plate-recognition/resources/cars2.mp4");
 
-        cv::CascadeClassifier plate_cascade;
-        if (!plate_cascade.load("../../../licence-plate-recognition/resources/plate_number.xml")) {
-            throw std::runtime_error("Failed to load Haar cascade for license plate detection");
-        }
+        cv::CascadeClassifier plate_cascade = loadCascade(
+            "../../../licence-plate-recognition/resources/plate_number.xml");
 
         cv::Mat frame, gray_frame;
         while (true) {

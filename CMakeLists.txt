@@ -4,6 +4,7 @@ project(objectDetection LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+include_directories(src)
 
 find_package(OpenCV REQUIRED)
 
@@ -12,6 +13,7 @@ add_executable(objectDetection src/main.cpp
     .gitignore
     resources/cars2.mp4
     resources/plate_number.xml
+    src/main.h
 )
 
 target_include_directories(objectDetection PRIVATE ${OpenCV_INCLUDE_DIRS})
