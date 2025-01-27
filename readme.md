@@ -39,7 +39,12 @@ cd licence-plate-recognition
 Create build folder if it doesn't exist:
 
 ```bash
-mkdir build && cd build
+mkdir build
+```
+
+Generate a make file
+```bash
+cd build && cmake ..
 ```
 
 Build the application

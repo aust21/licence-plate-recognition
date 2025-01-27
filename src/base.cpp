@@ -9,8 +9,8 @@
 cv::CascadeClassifier loadCascade(std::string filepath)
 {
     cv::CascadeClassifier plate_cascade;
-
-    if (!plate_cascade.load(filepath)) {
+    std::string full_path = std::string(RESOURCE_DIR) + "/" + filepath;
+    if (!plate_cascade.load(full_path)) {
         throw std::runtime_error("Failed to load cascade classifier");
     }
 
@@ -19,7 +19,9 @@ cv::CascadeClassifier loadCascade(std::string filepath)
 
 cv::VideoCapture loadCam(std::string filepath)
 {
-    cv::VideoCapture cap(filepath, cv::CAP_FFMPEG);
+    std::string full_path = std::string(RESOURCE_DIR) + "/" + filepath;
+    cv::VideoCapture cap(full_path, cv::CAP_FFMPEG);
+
     if (!cap.isOpened()) {
         throw std::runtime_error("Failed to open video stream");
     }
@@ -34,10 +36,9 @@ int Base::run()
         cv::resizeWindow("Licence plate detector", 800, 600);
 
         // Open the video stream
-        cv::VideoCapture cap = loadCam("../../../licence-plate-recognition/resources/cars2.mp4");
+        cv::VideoCapture cap = loadCam("cars2.mp4");
 
-        cv::CascadeClassifier plate_cascade = loadCascade(
-            "../../../licence-plate-recognition/resources/plate_number.xml");
+        cv::CascadeClassifier plate_cascade = loadCascade("plate_number.xml");
 
         cv::Mat frame, gray_frame;
         while (true) {

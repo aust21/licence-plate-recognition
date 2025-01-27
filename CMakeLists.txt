@@ -8,11 +8,11 @@ include_directories(src)
 
 find_package(OpenCV REQUIRED)
 
+# Define the root directory for resources
+add_definitions(-DRESOURCE_DIR="${CMAKE_SOURCE_DIR}/resources")
+
+
 add_executable(licence-detection src/main.cpp
-    readme.md
-    .gitignore
-    resources/cars2.mp4
-    resources/plate_number.xml
     src/main.h
     src/base.h src/base.cpp
 
