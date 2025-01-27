@@ -14,6 +14,7 @@ add_executable(objectDetection src/main.cpp
     resources/cars2.mp4
     resources/plate_number.xml
     src/main.h
+    src/base.h src/base.cpp
 )
 
 target_include_directories(objectDetection PRIVATE ${OpenCV_INCLUDE_DIRS})
